@@ -71,12 +71,15 @@ public class Enemy : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D col)
     {
+        Debug.Log("bump");
         Player player = col.gameObject.GetComponent<Player>();
         if (player != null)
         {
             if (dmgOnTouch > 0)
             {
                 player.TakeDmg(dmgOnTouch);
+                Vector3 direction = transform.position - player.transform.position;
+                player.KnockBack(direction * -1f, 5f);
             }
         }
     }
