@@ -47,6 +47,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void Redirect()
+    {
+        moveVelocity *= -1f;
+    }
+
     protected virtual void Die()
     {
         foreach (ItemPickup drop in drops)
