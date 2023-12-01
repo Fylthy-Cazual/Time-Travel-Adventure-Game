@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     float dashY;
     bool canDash;
     bool isDashing;
+    bool inKnockback;
     bool jumpIsHeld;
     bool canJump;
     protected float jumpStep; // Calculated on Start
@@ -164,7 +165,7 @@ public class Player : MonoBehaviour
 
     void UpdateVelocity()
     {
-        if (isDashing) return;
+        if (isDashing || inKnockback) return;
 
         Vector2 currVelocity = rb.velocity;
 
@@ -246,6 +247,19 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void KnockBack(Vector3 direction, float force)
+    {
+        inKnockback = true;
+        rb.velocity = new Vector2(direction.x, direction.y) * force;
+        Invoke("EndKnockBack", 1f);
+    }
+
+    void EndKnockBack()
+    {
+        rb.velocity = Vector2.zero;
+        inKnockback = false;
     }
 
     void Die()
