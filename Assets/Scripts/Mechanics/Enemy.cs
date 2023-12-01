@@ -47,6 +47,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void Redirect()
+    {
+        moveVelocity *= -1f;
+    }
+
     protected virtual void Die()
     {
         foreach (ItemPickup drop in drops)
@@ -77,6 +82,8 @@ public class Enemy : MonoBehaviour
             if (dmgOnTouch > 0)
             {
                 player.TakeDmg(dmgOnTouch);
+                Vector3 direction = transform.position - player.transform.position;
+                player.KnockBack(direction * -1f, 5f);
             }
         }
     }
