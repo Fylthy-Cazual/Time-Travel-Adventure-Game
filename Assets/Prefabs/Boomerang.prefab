@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b15707e655544813976cc0a1163c276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 25
   maxDistance: 50
   baseDamage: 1
   returnDmgMult: 2

@@ -6,7 +6,7 @@ public class Boomerang : MonoBehaviour
 {
     #region inspector var
     [Tooltip("Speed of the boomerang, like how fast the thing flys.")]
-    public float speed = 10;
+    public float speed = 20;
     [SerializeField] [Tooltip("how far it flies befor it comes back.")]
     private float maxDistance = 50;
     [SerializeField] [Tooltip("How much damage the boomerang does when it hits enemies.")]
@@ -31,14 +31,8 @@ public class Boomerang : MonoBehaviour
         // todo: factor in direction the player is facing
         startPos = transform.position;
         isReturning = false;
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void FixedUpdate()
     {
@@ -46,8 +40,7 @@ public class Boomerang : MonoBehaviour
         {
             returnToPlayer();
         } else{
-            rb.velocity = transform.right * speed * 2;
-            // Debug.Log(transform.right);
+            rb.velocity = transform.right * -1 * speed;
         }
     }
     
@@ -57,8 +50,8 @@ public class Boomerang : MonoBehaviour
     ///<summary>
 
     {
-        Debug.Log("coming bcak");
-        rb.velocity = (owner.transform.position - transform.position).normalized * speed * 2;
+        Vector2 vel = (transform.position - owner.transform.position).normalized * -1 * Mathf.Abs(speed);
+        rb.MovePosition(rb.position + vel * Time.fixedDeltaTime);
     }
 
     private bool maxDistanceCheck()
@@ -69,18 +62,37 @@ public class Boomerang : MonoBehaviour
     {
 
         float currentDistance = Vector2.Distance(transform.position, startPos);
-
-        if (currentDistance < 2 && isReturning) 
-        {
-            Destroy(gameObject);
-        }
-
+        Debug.Log(currentDistance);
         if (currentDistance > maxDistance) 
         {
             isReturning = true;
             return true;
         }
         return false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (isReturning)
+        { // destroy self if is returning and touched player
+            if (other.gameObject == owner)
+            {
+                owner.GetComponent<BoomerangWeapon>().boomerReturned();
+                Destroy(gameObject);
+            }
+        }
+
+         if (other.tag == "Enemy") {
+            Enemy target = other.gameObject.GetComponent<Enemy>();
+
+            if (isReturning) 
+            { //bonuse damage on returning
+                target.TakeDmg((int) (baseDamage * returnDmgMult)); 
+            } else {
+              //deal damage
+                target.TakeDmg((int) baseDamage); 
+            }
+        }
     }
 
     
