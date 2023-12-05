@@ -77,11 +77,11 @@ public class Player : MonoBehaviour
     {
         movement = movementValue.Get<float>();
         if (movement > 0) {
-            // sr.flipX = true;
+            //sr.flipX = true;
             transform.localScale = new Vector3(-1 * Mathf.Abs(transform.localScale.x), transform.localScale.y,transform.localScale.z);
         }
         if (movement < 0) {
-            // sr.flipX = false;
+            //sr.flipX = true;
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y,transform.localScale.z);
         }
         animator.SetFloat("Movement", Mathf.Abs(movement));

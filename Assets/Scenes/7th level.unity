@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: eb900aa07f3b54096b15bab10a807d15, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.5319929, g: 0.5869631, b: 0.5654385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -343,15 +343,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.1884594
+      value: 2.0122883
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7262
       objectReference: {fileID: 0}
     - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.67
+      value: 7.8536
       objectReference: {fileID: 0}
     - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4078
+      value: -4.9128
       objectReference: {fileID: 0}
     - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
       propertyPath: m_LocalPosition.z
@@ -864,15 +868,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.7604513
+      value: 4.4341197
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.82102317
       objectReference: {fileID: 0}
     - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.36
+      value: 12.5702
       objectReference: {fileID: 0}
     - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5841
+      value: -17.0592
       objectReference: {fileID: 0}
     - target: {fileID: 6916695594359204276, guid: 3f9e636308c64479e833042b2aa65211, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1020,7 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 0
-  dmgOnTouch: 0
+  dmgOnTouch: 5
   drops: []
   hasGravity: 0
   start: 20
