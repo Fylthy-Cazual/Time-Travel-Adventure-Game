@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
 
     void OnReset()
     {
-        SceneManager.LoadScene("DemoLevel");
+        SceneManager.LoadScene("LevelSelect");
     }
 
     void SlowdownOver()
