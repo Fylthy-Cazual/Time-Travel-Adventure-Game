@@ -913,6 +913,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7718860681144153139, guid: e2efb2e4f95404319872c2778f82d58b, type: 3}
+      propertyPath: scenePath
+      value: Assets/Scenes/1st level.unity
+      objectReference: {fileID: 0}
     - target: {fileID: 7718860681144153143, guid: e2efb2e4f95404319872c2778f82d58b, type: 3}
       propertyPath: m_Name
       value: GoHome
